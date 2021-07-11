@@ -1,0 +1,41 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "gcc compile",
+            "type": "shell",
+            "command": "gcc",
+            "args": [
+                "-g",
+                "'${file}'",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}.exe",
+                "-std=c18"
+            ]
+        },
+        {
+            "label": "g++ compile",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "-g",
+                "${file}",
+                "-o",
+                "\"${fileDirname}/${fileBasenameNoExtension}.exe\"",
+                "-std=c++17"
+            ]
+        },
+        {
+            "label": "gfortran compile",
+            "type": "shell",
+            "command": "gfortran",
+            "args": [
+                "-g",
+                "\"${file}\"",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}.exe",
+                "-std=f95"
+            ]
+        }
+    ]
+}
