@@ -7,7 +7,6 @@ program main
     common /group1/ a, b, m
     real(dp) :: x, y, z
     integer :: i
-    real(dp) tmp
 
     interface
         function Lehmer_linear_congruential(seed)
@@ -16,7 +15,7 @@ program main
 
             integer, intent(in), optional :: seed
             real(dp) :: Lehmer_linear_congruential
-        end function
+        end function Lehmer_linear_congruential
     end interface
 
     m = 2**31
