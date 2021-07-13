@@ -25,31 +25,31 @@ function Tausworthe_shift_counter_R250(seed)
     integer, intent(in), optional :: seed
     real(dp) :: Tausworthe_shift_counter_R250
     integer :: i
-    integer, save :: congruential_list(251) = (/(-1, i = 1,251)/)
+    integer, save :: I_list(251) = (/(-1, i = 1,251)/)
     logical :: initialized = .false.
     integer, parameter :: m = 16807
 
     if (present(seed)) then
-        congruential_list(1) = seed
+        I_list(1) = seed
         initialized = .false.
-    else if (congruential_list(1) == -1) then
-        congruential_list(1) = 1
+    else if (I_list(1) == -1) then
+        I_list(1) = 1
         initialized = .false.
     end if
 
     if (initialized) then
         do i = 1, 250
-            congruential_list(i) = congruential_list(i + 1)
+            I_list(i) = I_list(i + 1)
         end do
     else
-        congruential_list(2) = Congruential_16807(congruential_list(1))
+        I_list(2) = Congruential_16807(I_list(1))
         do i = 2,250
-            congruential_list(i + 1) = Congruential_16807()
+            I_list(i + 1) = Congruential_16807()
         end do
         initialized = .true.
     end if
-    congruential_list(251) = ieor(congruential_list(1), congruential_list(148))
-    Tausworthe_shift_counter_R250 = mod(congruential_list(251), m) / dble(m)
+    I_list(251) = ieor(I_list(1), I_list(148))
+    Tausworthe_shift_counter_R250 = mod(I_list(251), m) / dble(m)
 
 
     contains
