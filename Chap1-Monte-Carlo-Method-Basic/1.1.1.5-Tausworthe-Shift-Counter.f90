@@ -51,7 +51,6 @@ function Tausworthe_shift_counter_R250(seed)
     I_list(251) = ieor(I_list(1), I_list(148))
     Tausworthe_shift_counter_R250 = mod(I_list(251), m) / dble(m)
 
-
     contains
         function Congruential_16807(seed)
             ! Schrage 方法产生 16807 产生器中的随机整数
