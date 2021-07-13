@@ -36,10 +36,11 @@ function Lehmer_linear_congruential(seed)
     integer, parameter :: li = selected_int_kind(10)
     integer, parameter :: dp = selected_real_kind(8)
 
-    integer(li) :: a, b, m! 乘子, 增量, 模数
-    common /group1/ a, b, m
     integer, intent(in), optional :: seed
     real(dp) :: Lehmer_linear_congruential
+
+    integer(li) :: a, b, m! 乘子, 增量, 模数
+    common /group1/ a, b, m
     integer(li), save :: I_n = -1
     if (present(seed)) then
         I_n = seed

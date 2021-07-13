@@ -21,6 +21,7 @@ function get_seed(year, mon, day, hour, min, sec)
 
     integer, intent(in), optional :: year, mon, day, hour, min, sec
     integer :: get_seed
+
     character(10) :: b(3)
     integer :: date_time(8)
     integer :: i_y, i_m, i_d, i_h, i_n, i_s
