@@ -24,6 +24,7 @@ function Tausworthe_shift_counter_R250(seed)
 
     integer, intent(in), optional :: seed
     real(dp) :: Tausworthe_shift_counter_R250
+
     integer :: i
     integer, save :: I_list(251) = (/(-1, i = 1,251)/)
     logical :: initialized = .false.
@@ -38,9 +39,7 @@ function Tausworthe_shift_counter_R250(seed)
     end if
 
     if (initialized) then
-        do i = 1, 250
-            I_list(i) = I_list(i + 1)
-        end do
+        I_list(1:250) = I_list(2:251)
     else
         I_list(2) = Congruential_16807(I_list(1))
         do i = 2,250

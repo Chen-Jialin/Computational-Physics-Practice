@@ -27,6 +27,7 @@ function Load_subtraction_generator(seed)
 
     integer(li), intent(in), optional :: seed
     real(dp) :: Load_subtraction_generator
+
     integer :: i
     integer(li), save :: I_list(44) = (/(-1, i = 1, 44)/)
     logical :: initialized = .false.
@@ -42,9 +43,7 @@ function Load_subtraction_generator(seed)
     end if
 
     if (initialized) then
-        do i = 1, 43
-            I_list(i) = I_list(i + 1)
-        end do
+        I_list(1:43) = I_list(2:44)
     else
         I_list(2) = Congruential_16807(I_list(1))
         do i = 2, 43

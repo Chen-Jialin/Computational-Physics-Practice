@@ -26,6 +26,7 @@ function Load_subtraction_Weyl_generator(seed_1, seed_2)
 
     integer(li), intent(in), optional :: seed_1, seed_2
     real(dp) :: Load_subtraction_Weyl_generator
+
     integer :: i
     integer(li), save :: J_list(44) = (/(-1, i = 1, 44)/)
     integer(li), save :: K_n = -1, I_n
@@ -52,9 +53,7 @@ function Load_subtraction_Weyl_generator(seed_1, seed_2)
     end if
 
     if (initialized) then
-        do i = 1, 43
-            J_list(i) = J_list(i + 1)
-        end do
+        J_list(1:43) = J_list(2:44)
     else
         J_list(2) = Congruential_16807(J_list(1))
         do i = 2, 43
