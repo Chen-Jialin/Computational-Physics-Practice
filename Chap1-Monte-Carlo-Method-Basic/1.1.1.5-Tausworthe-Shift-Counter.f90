@@ -9,7 +9,7 @@ program main
 
             integer, intent(in), optional :: seed
             real(dp) :: Tausworthe_shift_counter_R250
-        end function
+        end function Tausworthe_shift_counter_R250
     end interface
 
     do i = 1, 100
@@ -55,14 +55,14 @@ function Tausworthe_shift_counter_R250(seed)
         function Congruential_16807(seed)
             ! Schrage 方法产生 16807 产生器中的随机整数
             implicit none
-        
+
             integer, intent(in), optional :: seed
             integer :: Congruential_16807
-        
+
             integer, parameter :: a = 7**5, m = 2**31 - 1
             integer, parameter :: q = 12773, r = 2836
             integer, save :: z
-        
+
             if (present(seed)) then
                 z = seed
             else if (z == -1) then
