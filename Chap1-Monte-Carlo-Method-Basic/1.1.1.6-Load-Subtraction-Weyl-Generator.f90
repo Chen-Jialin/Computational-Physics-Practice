@@ -1,6 +1,5 @@
 program main
     implicit none
-    integer, parameter :: dp = selected_real_kind(8)
 
     integer :: i
     interface
