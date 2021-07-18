@@ -11,7 +11,7 @@ program main
 
             integer(li), intent(in), optional :: seed
             real(dp) :: Load_subtraction_generator
-        end function
+        end function Load_subtraction_generator
     end interface
 
     do i = 1, 100
