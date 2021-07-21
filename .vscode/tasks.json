@@ -34,7 +34,7 @@
                 "\"${file}\"",
                 "-o",
                 "${fileDirname}/${fileBasenameNoExtension}.exe",
-                "-std=f95"
+                "-std=f2008"
             ]
         }
     ]
