@@ -86,7 +86,6 @@ program main
     else
         write(*,*) 'The random number series are not uniformly distributed over [0,1).'
     end if
-
 end program main
 
 function Schrage_16807(seed_)

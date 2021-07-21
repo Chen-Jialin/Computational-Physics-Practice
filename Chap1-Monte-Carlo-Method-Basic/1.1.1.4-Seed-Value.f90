@@ -4,10 +4,10 @@ program main
     integer :: seed
 
     interface
-        function get_seed(year, mon, day, hour, min, sec)
+        function get_seed(year_, mon_, day_, hour_, min_, sec_)
             implicit none
 
-            integer, intent(in), optional :: year, mon, day, hour, min, sec
+            integer, intent(in), optional :: year_, mon_, day_, hour_, min_, sec_
             integer :: get_seed
         end function get_seed
     end interface
@@ -16,24 +16,24 @@ program main
     write(*,*) "Current seed value = ", seed
 end program main
 
-function get_seed(year, mon, day, hour, min, sec)
+function get_seed(year_, mon_, day_, hour_, min_, sec_)
     implicit none
 
-    integer, intent(in), optional :: year, mon, day, hour, min, sec
+    integer, intent(in), optional :: year_, mon_, day_, hour_, min_, sec_
     integer :: get_seed
 
     character(10) :: b(3)
     integer :: date_time(8)
     integer :: i_y, i_m, i_d, i_h, i_n, i_s
 
-    if ((present(year)) .and. (present(mon)) .and. (present(day)) .and.&
-        (present(hour)) .and. (present(min)) .and. (present(sec))) then
-        i_y = mod(year, 100)
-        i_m = mon
-        i_d = day
-        i_h = hour
-        i_n = min
-        i_s = sec
+    if ((present(year_)) .and. (present(mon_)) .and. (present(day_)) .and.&
+        (present(hour_)) .and. (present(min_)) .and. (present(sec_))) then
+        i_y = mod(year_, 100)
+        i_m = mon_
+        i_d = day_
+        i_h = hour_
+        i_n = min_
+        i_s = sec_
     else
         call date_and_time(b(1), b(2), b(3), date_time)
         i_y = mod(date_time(1), 100)

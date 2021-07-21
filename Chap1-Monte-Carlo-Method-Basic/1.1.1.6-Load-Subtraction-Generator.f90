@@ -4,12 +4,12 @@ program main
 
     integer :: i
     interface
-        function Load_subtraction_generator(seed)
+        function Load_subtraction_generator(seed_)
             implicit none
             integer, parameter :: li = selected_int_kind(10)
             integer, parameter :: dp = selected_real_kind(8)
 
-            integer(li), intent(in), optional :: seed
+            integer(li), intent(in), optional :: seed_
             real(dp) :: Load_subtraction_generator
         end function Load_subtraction_generator
     end interface
@@ -19,23 +19,23 @@ program main
     end do
 end program main
 
-function Load_subtraction_generator(seed)
+function Load_subtraction_generator(seed_)
     ! 带载减法产生器
     implicit none
     integer, parameter :: li = selected_int_kind(10)
     integer, parameter :: dp = selected_real_kind(8)
 
-    integer(li), intent(in), optional :: seed
+    integer(li), intent(in), optional :: seed_
     real(dp) :: Load_subtraction_generator
 
     integer :: i
-    integer(li), save :: I_list(44) = (/(-1, i = 1, 44)/)
+    integer(li), save :: I_list(44) = [(-1, i = 1, 44)]
     logical :: initialized = .false.
     integer(li), parameter :: m = 16807
     integer :: C = 0
 
-    if (present(seed)) then
-        I_list(1) = seed
+    if (present(seed_)) then
+        I_list(1) = seed_
         initialized = .false.
     else if (I_list(1) == -1) then
         I_list(1) = 1
@@ -61,20 +61,20 @@ function Load_subtraction_generator(seed)
     Load_subtraction_generator = mod(I_list(44), m) / dble(m)
 
     contains
-        function Congruential_16807(seed)
+        function Congruential_16807(seed_)
             ! Schrage 方法产生 16807 产生器中的随机整数
             implicit none
             integer, parameter :: li = selected_int_kind(10)
 
-            integer(li), intent(in), optional :: seed
+            integer(li), intent(in), optional :: seed_
             integer :: Congruential_16807
 
             integer, parameter :: a = 7**5, m = 2**31 - 1
             integer, parameter :: q = 12773, r = 2836
             integer, save :: z
 
-            if (present(seed)) then
-                z = seed
+            if (present(seed_)) then
+                z = seed_
             else if (z == -1) then
                 z = 1
             end if
