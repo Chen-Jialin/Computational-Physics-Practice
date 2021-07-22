@@ -70,7 +70,7 @@ program main
         x(i) = Schrage_16807()
         y(i) = Schrage_16807()
     end do
-    open(unit = 11, file='1.1.1.3-Schrage-Method-2.txt', status='replace')
+    open(unit=11, file='1.1.1.3-Schrage-Method-2.txt', status='replace')
     do i = 1, 10000
         write(11, '(2f16.8)') x(i), y(i)
     end do
