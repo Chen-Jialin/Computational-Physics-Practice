@@ -129,10 +129,11 @@ function Chi_square(x, y, num_split_)
     real(dp) :: Chi_square
 
     integer :: i, j
-    integer :: num_split = 10
+    integer :: num_split
     integer, allocatable :: n(:) ! 实际频数
     real(dp) :: m ! 理论频数
 
+    num_split = 10
     if (present(num_split_)) then
         num_split = num_split_
     end if
@@ -159,14 +160,16 @@ function Chi_alpha_square(nu_, alpha_)
     real(dp), intent(in), optional :: alpha_ ! 显著水平
     real(dp) :: Chi_alpha_square
 
-    integer :: nu = 99
-    real(dp) :: P_fiducial = 0.95 ! 置信概率
+    integer :: nu
+    real(dp) :: P_fiducial ! 置信概率
     integer :: i
     real(dp) :: x_lower_bound = 0.d0, x_upper_bound = 1.d0
 
+    nu = 99
     if (present(nu_)) then
         nu = nu_
     end if
+    P_fiducial = 0.95
     if (present(alpha_)) then
         P_fiducial = 1.d0 - alpha_
     end if
