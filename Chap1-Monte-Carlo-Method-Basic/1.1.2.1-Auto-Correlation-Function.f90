@@ -4,6 +4,8 @@ program main
 
     integer :: a, b, m
     common /group1/ a, b, m
+    integer, allocatable :: seed(:)
+    integer :: n
     integer :: i, l = 1
     real(dp) :: x(1000) ! 随机数列
     real(dp) :: C_l ! 自相关函数
@@ -20,9 +22,10 @@ program main
         end function Auto_correlaion
     end interface
 
-    a = 7**5
-    b = 0
-    m = 2**31 - 1
+    call random_seed(size=n)
+    allocate(seed(n))
+    seed = 1
+    call random_seed(put=seed)
     do i = 1, size(x)
         call random_number(x(i))
     end do

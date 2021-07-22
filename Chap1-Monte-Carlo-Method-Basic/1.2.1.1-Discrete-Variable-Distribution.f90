@@ -2,6 +2,8 @@ program main
     implicit none
     integer, parameter :: dp = selected_real_kind(8)
 
+    integer, allocatable :: seed(:)
+    integer :: n
     integer :: i
     interface
         function Discrete_varible()
@@ -16,12 +18,16 @@ program main
             ! Poisson 分布
             implicit none
             integer, parameter :: dp = selected_real_kind(8)
-        
+
             integer, intent(in) :: lambda
             real(dp) :: Poisson
         end function Poisson
     end interface
 
+    call random_seed(size=n)
+    allocate(seed(n))
+    seed = 1
+    call random_seed(put=seed)
     do i = 1, 100
         write(*,*) Discrete_varible()
     end do
