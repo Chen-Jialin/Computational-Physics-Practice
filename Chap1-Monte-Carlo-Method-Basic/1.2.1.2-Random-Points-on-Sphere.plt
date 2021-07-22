@@ -1,0 +1,1 @@
+splot '1.2.1.2-Random-Points-on-Sphere.txt' u ($1*sin($2)*cos($3)):($1*sin($2)*sin($3)):($1*cos($2)) w d
