@@ -43,3 +43,6 @@ $$
 \theta=\arccos(1-2\xi_{\Theta})=\arccos(2\xi_{\Theta}-1),\\
 \varphi=2\pi\xi_{\varPhi}.
 $$
+
+#### 1.2.2.2 Box-Muller 法
+产生的正态分布随机数中接近 $0$ 的频次非同寻常的高，原因不明.
