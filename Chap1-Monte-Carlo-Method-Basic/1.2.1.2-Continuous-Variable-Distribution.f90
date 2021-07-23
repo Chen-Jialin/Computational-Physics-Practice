@@ -7,7 +7,7 @@ program main
 
     interface
         function Free_path(lambda)
-            ! 粒子随机运动的自由程分布
+            ! 利用变换抽样法产生粒子随机运动的自由程分布
             implicit none
             integer, parameter :: dp = selected_real_kind(8)
 
@@ -16,16 +16,15 @@ program main
         end function Free_path
 
         function Scattering_azimuth_angle()
-            ! 粒子输运问题中散射方位角余弦分布
+            ! 利用变换抽样法产生粒子输运问题中散射方位角余弦分布
             implicit none
             integer, parameter :: dp = selected_real_kind(8)
-            real(dp), parameter :: pi = acos(-1.d0)
 
             real(dp) :: Scattering_azimuth_angle
         end function Scattering_azimuth_angle
 
         function Random_pt_on_sphere(rho_)
-            ! 球面上均匀分布的随机坐标点的(rho,theta,phi)坐标
+            ! 利用变换抽样法产生球面上均匀分布的随机坐标点的 (rho,theta,phi) 坐标
             implicit none
             integer, parameter :: dp = selected_real_kind(8)
 
@@ -54,7 +53,7 @@ program main
 end program main
 
 function Free_path(lambda)
-    ! 粒子随机运动的自由程分布
+    ! 利用变换抽样法产生粒子随机运动的自由程分布
     implicit none
     integer, parameter :: dp = selected_real_kind(8)
 
@@ -68,7 +67,7 @@ function Free_path(lambda)
 end function Free_path
 
 function Scattering_azimuth_angle()
-    ! 粒子输运问题中散射方位角余弦分布
+    ! 利用变换抽样法产生粒子输运问题中散射方位角余弦分布
     implicit none
     integer, parameter :: dp = selected_real_kind(8)
     real(dp), parameter :: pi = acos(-1.d0)
@@ -82,7 +81,7 @@ function Scattering_azimuth_angle()
 end function Scattering_azimuth_angle
 
 function Random_pt_on_sphere(rho_)
-    ! 球面上均匀分布的随机坐标点的(rho,theta,phi)坐标
+    ! 利用变换抽样法产生球面上均匀分布的随机坐标点的 (rho,theta,phi) 坐标
     implicit none
     integer, parameter :: dp = selected_real_kind(8)
     real(dp), parameter ::pi = acos(-1.d0)
