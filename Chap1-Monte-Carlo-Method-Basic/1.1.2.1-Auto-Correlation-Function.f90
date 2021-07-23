@@ -44,6 +44,7 @@ function Auto_correlaion(x, l)
 
     if (size(x) < l + 1) then
         write(*,*) 'Interval l too large, correlation coeffiecient undefined.'
+        Auto_correlaion = 0.d0
         return
     end if
 

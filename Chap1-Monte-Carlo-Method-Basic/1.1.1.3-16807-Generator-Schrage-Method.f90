@@ -203,14 +203,15 @@ function Chi_alpha_square(nu_, alpha_)
             real(dp), allocatable :: integrand(:)
             integer :: i
 
-            P_chi_square = 0.0
             if (x == 0.d0) then
+                P_chi_square = 0.0
                 return
             end if
             if (.not. (present(num_pt_))) then
                 num_pt = 101
             else if (mod(num_pt_, 2) == 0) then
                 write(*,*) 'Even elements, Simpson does not know how to work!'
+                P_chi_square = 0.0
                 return
             end if
             num_sect = num_pt - 1
