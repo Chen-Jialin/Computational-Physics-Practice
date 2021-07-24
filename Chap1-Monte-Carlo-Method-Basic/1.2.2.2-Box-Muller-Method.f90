@@ -56,5 +56,5 @@ function Gaussian_Box_Muller_method(x_bar_, sigma_square_)
     call random_number(v)
     Gaussian_Box_Muller_method = sqrt(-2.d0 * log(u)) * cos(2.d0 * pi * v)
     ! Gaussian_Box_Muller_method = sqrt(-2.d0 * log(u)) * sin(2.d0 * pi * v)
-    Gaussian_Box_Muller_method = Gaussian_Box_Muller_method * sigma_square**2 + x_bar
+    Gaussian_Box_Muller_method = Gaussian_Box_Muller_method * sigma_square**2.d0 + x_bar
 end function Gaussian_Box_Muller_method

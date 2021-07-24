@@ -189,7 +189,7 @@ function Chi_alpha_square(nu_, alpha_)
 
     contains
         function P_chi_square(x, nu, num_pt_)
-            ! \chi^2 分布的累计分布函数，其中积分项利用 Simpson 法计算
+            ! chi^2 分布的累计分布函数，其中积分项利用 Simpson 法计算
             implicit none
             integer, parameter :: dp = selected_real_kind(8)
 
